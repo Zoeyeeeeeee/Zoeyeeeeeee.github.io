@@ -14,14 +14,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Nikto——Perl语言开发的开源web安全扫描器Nikto扫描服务：1.扫web服务器使用的软件的版本例：扫描的是IIS, Apache还是tomcat，当前是不是最新的版本，并且比较和最新版本之间可能会产生的漏洞 2.扫描存在安全隐患的文件例：部分web管理员将备份完的包放在另一服务器上，若被扫描出这个文件并下载下来后，得到目标网站的源代码，并且可以分析更多的漏洞 3.扫描服务器配置漏洞例：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/安全牛WEB渗透-Nikto/nikto-03.png">
-<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/安全牛WEB渗透-Nikto/nikto-04.png">
-<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/安全牛WEB渗透-Nikto/nikto-11.png">
-<meta property="og:updated_time" content="2018-07-11T12:57:27.120Z">
+<meta property="og:updated_time" content="2018-07-11T13:04:32.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安全牛WEB渗透-----Nikto">
 <meta name="twitter:description" content="Nikto——Perl语言开发的开源web安全扫描器Nikto扫描服务：1.扫web服务器使用的软件的版本例：扫描的是IIS, Apache还是tomcat，当前是不是最新的版本，并且比较和最新版本之间可能会产生的漏洞 2.扫描存在安全隐患的文件例：部分web管理员将备份完的包放在另一服务器上，若被扫描出这个文件并下载下来后，得到目标网站的源代码，并且可以分析更多的漏洞 3.扫描服务器配置漏洞例：">
-<meta name="twitter:image" content="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/安全牛WEB渗透-Nikto/nikto-03.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -101,33 +97,40 @@
 </code></pre><h2 id="Nikto常用命令："><a href="#Nikto常用命令：" class="headerlink" title="Nikto常用命令："></a>Nikto常用命令：</h2><h3 id="1-nikto-update（升级插件，从CIRT-net的网址中升级数据库与插件）"><a href="#1-nikto-update（升级插件，从CIRT-net的网址中升级数据库与插件）" class="headerlink" title="1.    nikto -update（升级插件，从CIRT.net的网址中升级数据库与插件）"></a>1.    nikto -update（升级插件，从CIRT.net的网址中升级数据库与插件）</h3><pre><code>若通过命令不能更新，可以通过网址：http://cirt.net/nikto/UPDATES 下载其他版本
 </code></pre><h3 id="2-nikto-list-plugins（查看nikto的插件）"><a href="#2-nikto-list-plugins（查看nikto的插件）" class="headerlink" title="2.    nikto -list-plugins（查看nikto的插件）"></a>2.    nikto -list-plugins（查看nikto的插件）</h3><pre><code>例：auto（身份认证）、fileops（文件操作）、ssl、tests（标准nikto扫描）、shellshock（破壳漏洞）
 </code></pre><h3 id="3-nikto-host-http-1-1-1-1-（URL地址）"><a href="#3-nikto-host-http-1-1-1-1-（URL地址）" class="headerlink" title="3.    nikto -host http://1.1.1.1 （URL地址）"></a>3.    nikto -host <a href="http://1.1.1.1" target="_blank" rel="noopener">http://1.1.1.1</a> （URL地址）</h3><pre><code>例：nikto -host http://192.168.108.131 （/dvwa：扫描指定目录）
+
 ![](安全牛WEB渗透-Nikto/nikto-01.png)
 </code></pre><h3 id="4-nikto-host-192-168-108-131-port-80（也可以多个端口）"><a href="#4-nikto-host-192-168-108-131-port-80（也可以多个端口）" class="headerlink" title="4.    nikto -host 192.168.108.131 -port 80（也可以多个端口）"></a>4.    nikto -host 192.168.108.131 -port 80（也可以多个端口）</h3><pre><code>![](安全牛WEB渗透-Nikto/nikto-02.png)
-</code></pre><p>1.X-XSS-Projection响应头是Internet Explorer，Chrome和Safari的一个功能，当检测到跨站脚本攻击 (XSS)时，浏览器将停止加载页面。<br>2、X-Content-Type-Options 响应首部相当于一个提示标志，MIME类型嗅探<br>3、Apache的版本为2.2.8，是过期的版本，当前至少应该是2.4.12版本<br>        <img src="安全牛WEB渗透-Nikto/nikto-03.png" alt=""></p>
-<p>HTTP TRACE：主要用于测试或诊断，用来进行跨站脚本（XSS）攻击，这种攻击方式又称为跨站跟踪攻击（XST）<br>跨站脚本：/phpinfo.php?VARIABLE=<script>alert(‘Vulnerable’)</script>: Output from the phpinfo() function was found.<br>        <img src="安全牛WEB渗透-Nikto/nikto-04.png" alt=""></p>
-<h3 id="5-nikto-host-www-baidu-com-port-443-ssl（扫描https）"><a href="#5-nikto-host-www-baidu-com-port-443-ssl（扫描https）" class="headerlink" title="5.    nikto -host www.baidu.com -port 443 -ssl（扫描https）"></a>5.    nikto -host <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -port 443 -ssl（扫描https）</h3><pre><code>例：Target IP:解析出来的目标ip地址
+</code></pre><p>1.X-XSS-Projection响应头是Internet Explorer，Chrome和Safari的一个功能，当检测到跨站脚本攻击 (XSS)时，浏览器将停止加载页面。<br>2、X-Content-Type-Options 响应首部相当于一个提示标志，MIME类型嗅探<br>3、Apache的版本为2.2.8，是过期的版本，当前至少应该是2.4.12版本</p>
+<pre><code>![](安全牛WEB渗透-Nikto/nikto-03.png)
+</code></pre><p>HTTP TRACE：主要用于测试或诊断，用来进行跨站脚本（XSS）攻击，这种攻击方式又称为跨站跟踪攻击（XST）<br>跨站脚本：/phpinfo.php?VARIABLE=<script>alert(‘Vulnerable’)</script>: Output from the phpinfo() function was found.</p>
+<pre><code>![](安全牛WEB渗透-Nikto/nikto-04.png)
+</code></pre><h3 id="5-nikto-host-www-baidu-com-port-443-ssl（扫描https）"><a href="#5-nikto-host-www-baidu-com-port-443-ssl（扫描https）" class="headerlink" title="5.    nikto -host www.baidu.com -port 443 -ssl（扫描https）"></a>5.    nikto -host <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -port 443 -ssl（扫描https）</h3><pre><code>例：Target IP:解析出来的目标ip地址
 Target Hostname：对应的域名
 SSL Info：使用证书的相关信息 （Subject：证书的信息；Cipers：证书加密的方式等）
+
 ![](安全牛WEB渗透-Nikto/nikto-05.png)
 
 &quot;robots.txt&quot; contains 118 entries which should be manually viewed.：很需要查看一下这个robots.txt文件
 ![](安全牛WEB渗透-Nikto/nikto-06.png)
 </code></pre><h3 id="6-nikto-host-host-txt"><a href="#6-nikto-host-host-txt" class="headerlink" title="6.    nikto -host host.txt"></a>6.    nikto -host host.txt</h3><pre><code>需要扫描的网站有多个的时候，可以将他们一起放到host.txt文件中，打包扫描
 </code></pre><h3 id="7-nmap-p80-192-168-1-0-24-oG-nikto-host-–"><a href="#7-nmap-p80-192-168-1-0-24-oG-nikto-host-–" class="headerlink" title="7.    nmap -p80 192.168.1.0/24 -oG -|nikto -host –"></a>7.    nmap -p80 192.168.1.0/24 -oG -|nikto -host –</h3><pre><code>nmap扫描192.168.1.0网段中开了80端口的所有机器，输出并扫描
+
 ![](安全牛WEB渗透-Nikto/nikto-07.png)
 </code></pre><h3 id="8-nikto-host-192-168-1-1-useproxy-http-localhost-8087-用代理去扫描"><a href="#8-nikto-host-192-168-1-1-useproxy-http-localhost-8087-用代理去扫描" class="headerlink" title="8.    nikto -host 192.168.1.1 -useproxy http://localhost:8087 (用代理去扫描)"></a>8.    nikto -host 192.168.1.1 -useproxy <a href="http://localhost:8087" target="_blank" rel="noopener">http://localhost:8087</a> (用代理去扫描)</h3><h3 id="9-nikto-vhost-一个ip上有多个网站"><a href="#9-nikto-vhost-一个ip上有多个网站" class="headerlink" title="9.    nikto -vhost  (一个ip上有多个网站)"></a>9.    nikto -vhost  (一个ip上有多个网站)</h3><h3 id="10-Nikto-interactive"><a href="#10-Nikto-interactive" class="headerlink" title="10.    Nikto-interactive"></a>10.    Nikto-interactive</h3><pre><code>![](安全牛WEB渗透-Nikto/nikto-08.png)
 </code></pre><h3 id="11-nikto的配置文件（vi-etc-nikto-conf）"><a href="#11-nikto的配置文件（vi-etc-nikto-conf）" class="headerlink" title="11.    nikto的配置文件（vi /etc/nikto.conf）"></a>11.    nikto的配置文件（vi /etc/nikto.conf）</h3><pre><code>![](安全牛WEB渗透-Nikto/nikto-09.png)
 
 ![](安全牛WEB渗透-Nikto/nikto-10.png)
-</code></pre><p>按F12将cookies的值显示出来，并填入配置文件中<br>        <img src="安全牛WEB渗透-Nikto/nikto-11.png" alt=""></p>
-<pre><code>![](安全牛WEB渗透-Nikto/nikto-12.png)
+</code></pre><p>按F12将cookies的值显示出来，并填入配置文件中</p>
+<pre><code>![](安全牛WEB渗透-Nikto/nikto-11.png)
+
+![](安全牛WEB渗透-Nikto/nikto-12.png)
 </code></pre><h3 id="11-nikto-evasion"><a href="#11-nikto-evasion" class="headerlink" title="11.    nikto -evasion"></a>11.    nikto -evasion</h3><pre><code>例：举例：nikto -host http://192.168.43.165/dvwa/ -evasion 167（采用1、6、7逃避技术来扫描192.168.43.165的dvwa目录）
 ![](安全牛WEB渗透-Nikto/nikto-13.png)
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/" data-id="cjjh4ts4m0001h4reh54yj8kg" class="article-share-link">Share</a>
+      <a data-url="https://zoeyeeeeeee.github.io/2018/07/11/安全牛WEB渗透-Nikto/" data-id="cjjh4uy7s0001rsre5jlkaww5" class="article-share-link">Share</a>
       
       
     </footer>
