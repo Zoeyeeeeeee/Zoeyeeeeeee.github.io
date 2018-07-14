@@ -1701,3 +1701,18 @@ th, td {
 pre {
   font-family: 
 }
+
+
+/*添加侧边栏*/
+/*.panel-cover {
+  display: block;
+  position: fixed;
+  z-index: 900;
+  width: 20%;
+  max-width: none;
+  height: 100%;
+  background: url(../images/background-cover.jpg) top left no-repeat #666666;
+  background-size: cover; }
+ */
+ 
+ 
