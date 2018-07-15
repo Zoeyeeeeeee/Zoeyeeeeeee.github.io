@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      docker-linode/lamp的使用 | blogs 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="ki..">
+    
+    
+
+    <meta name="description" content="Docker下利用linode/lamp1.lamp是一个web应用软件组合&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;lamp一组常用来搭建动态网站或者服务器的开源软件，集Linux+Apache+Mysql + PHP于一体，这些本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台 2.官方文档点这里 3.使用教程：①">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker-linode&#x2F;lamp的使用 | blogs">
+<meta property="og:url" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/index.html">
+<meta property="og:site_name" content="blogs">
+<meta property="og:description" content="Docker下利用linode/lamp1.lamp是一个web应用软件组合&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;lamp一组常用来搭建动态网站或者服务器的开源软件，集Linux+Apache+Mysql + PHP于一体，这些本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台 2.官方文档点这里 3.使用教程：①">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/01.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/02.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/03.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/04.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/05.png">
+<meta property="og:updated_time" content="2018-07-15T15:20:28.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker-linode&#x2F;lamp的使用 | blogs">
+<meta name="twitter:description" content="Docker下利用linode/lamp1.lamp是一个web应用软件组合&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;lamp一组常用来搭建动态网站或者服务器的开源软件，集Linux+Apache+Mysql + PHP于一体，这些本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台 2.官方文档点这里 3.使用教程：①">
+<meta name="twitter:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker-linode-lamp的使用/01.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">blogs</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">友链</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">docker-linode/lamp的使用</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-07-15" class="post-meta__date date">2018-07-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+
+
+	 
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="Docker下利用linode-lamp"><a href="#Docker下利用linode-lamp" class="headerlink" title="Docker下利用linode/lamp"></a><center>Docker下利用linode/lamp</center></h2><h3 id="1-lamp是一个web应用软件组合"><a href="#1-lamp是一个web应用软件组合" class="headerlink" title="1.lamp是一个web应用软件组合"></a>1.lamp是一个web应用软件组合</h3><p>&#160;&#160;&#160;&#160;&#160;lamp一组常用来搭建动态网站或者服务器的开源软件，集Linux+Apache+Mysql + PHP于一体，这些本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台</p>
+<h3 id="2-官方文档"><a href="#2-官方文档" class="headerlink" title="2.官方文档"></a>2.官方文档</h3><p><a href="https://hub.docker.com/r/linode/lamp/" target="_blank" rel="noopener">点这里</a></p>
+<h3 id="3-使用教程："><a href="#3-使用教程：" class="headerlink" title="3.使用教程："></a>3.使用教程：</h3><h4 id="①寻找lamp的版本，发现了linode-lamp"><a href="#①寻找lamp的版本，发现了linode-lamp" class="headerlink" title="①寻找lamp的版本，发现了linode/lamp"></a>①寻找lamp的版本，发现了linode/lamp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker search lamp</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker-linode-lamp的使用/../docker-linode-lamp的使用/01.png" alt=""></p>
+<h4 id="②拉取官方linode-lamp镜像"><a href="#②拉取官方linode-lamp镜像" class="headerlink" title="②拉取官方linode/lamp镜像"></a>②拉取官方linode/lamp镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker pull linode/lamp</span><br></pre></td></tr></table></figure>
+<h4 id="③查看镜像"><a href="#③查看镜像" class="headerlink" title="③查看镜像"></a>③查看镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker images</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker-linode-lamp的使用/../docker-linode-lamp的使用/02.png" alt=""></p>
+<h4 id="④启动镜像"><a href="#④启动镜像" class="headerlink" title="④启动镜像"></a>④启动镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker run -p 10000:80 -it linode/lamp</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker-linode-lamp的使用/../docker-linode-lamp的使用/03.png" alt=""></p>
+<h4 id="⑤开启镜像中Apache和mysql服务"><a href="#⑤开启镜像中Apache和mysql服务" class="headerlink" title="⑤开启镜像中Apache和mysql服务"></a>⑤开启镜像中Apache和mysql服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@51a67992de2e:/# service apache2 start</span><br><span class="line">root@51a67992de2e:/# service mysql start</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker-linode-lamp的使用/../docker-linode-lamp的使用/04.png" alt=""></p>
+<h4 id="⑥观察mysql的3306端口和Apache的80端口有没有开启成功"><a href="#⑥观察mysql的3306端口和Apache的80端口有没有开启成功" class="headerlink" title="⑥观察mysql的3306端口和Apache的80端口有没有开启成功"></a>⑥观察mysql的3306端口和Apache的80端口有没有开启成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@51a67992de2e:/# netstat -pant</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker-linode-lamp的使用/../docker-linode-lamp的使用/05.png" alt=""></p>
+<h4 id="⑦安装想要的php扩展"><a href="#⑦安装想要的php扩展" class="headerlink" title="⑦安装想要的php扩展"></a>⑦安装想要的php扩展</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install php5-mysql</span><br><span class="line">apt-get install php5-gd</span><br><span class="line">...</span><br><span class="line">#重启apache2:</span><br><span class="line">service apache2 restart</span><br><span class="line"></span><br><span class="line">#确认mysql和apache2的端口有没有开启：</span><br><span class="line">netstat -pant</span><br></pre></td></tr></table></figure>
+<h4 id="结束后即可通过基础的docker命令进行打包"><a href="#结束后即可通过基础的docker命令进行打包" class="headerlink" title="结束后即可通过基础的docker命令进行打包"></a>结束后即可通过基础的docker命令进行打包</h4>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
