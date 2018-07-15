@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      docker基础 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="docker的基本使用1.在Kali中安装docker安装教程官方文档 2.关于docker的基础知识本篇文章使用的docker相当于在kali里的小虚拟机，可以打包应用，依赖包到一个可移植的容器中，到任何流行的 Linux 机器上，也可以实现虚拟化。&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;docker分别有仓库，镜像，容器；&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker基础 | Hexo">
+<meta property="og:url" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="docker的基本使用1.在Kali中安装docker安装教程官方文档 2.关于docker的基础知识本篇文章使用的docker相当于在kali里的小虚拟机，可以打包应用，依赖包到一个可移植的容器中，到任何流行的 Linux 机器上，也可以实现虚拟化。&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;docker分别有仓库，镜像，容器；&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/01.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/02.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/03.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/04.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/05.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/06.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/07.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/08.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/09.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/10.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/11.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/12.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/13.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/14.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/15.png">
+<meta property="og:updated_time" content="2018-07-15T07:56:37.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker基础 | Hexo">
+<meta name="twitter:description" content="docker的基本使用1.在Kali中安装docker安装教程官方文档 2.关于docker的基础知识本篇文章使用的docker相当于在kali里的小虚拟机，可以打包应用，依赖包到一个可移植的容器中，到任何流行的 Linux 机器上，也可以实现虚拟化。&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;docker分别有仓库，镜像，容器；&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#">
+<meta name="twitter:image" content="https://zoeyeeeeeee.github.io/2018/07/15/docker基础/01.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">友链</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">docker基础</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-07-15" class="post-meta__date date">2018-07-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="docker的基本使用"><a href="#docker的基本使用" class="headerlink" title="docker的基本使用"></a><center>docker的基本使用</center></h2><h3 id="1-在Kali中安装docker"><a href="#1-在Kali中安装docker" class="headerlink" title="1.在Kali中安装docker"></a>1.在Kali中安装docker</h3><p><a href="https://blog.csdn.net/u013814153/article/details/53925790" target="_blank" rel="noopener">安装教程</a><br><a href="https://docs.docker-cn.com/" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="2-关于docker的基础知识"><a href="#2-关于docker的基础知识" class="headerlink" title="2.关于docker的基础知识"></a>2.关于docker的基础知识</h3><p>本篇文章使用的docker相当于在kali里的小虚拟机，可以打包应用，依赖包到一个可移植的容器中，到任何流行的 Linux 机器上，也可以实现虚拟化。<br>&#160;&#160;&#160;&#160;&#160;docker分别有仓库，镜像，容器；<br>&#160;&#160;&#160;&#160;&#160;仓库存放镜像；镜像运行后变成一个容器；容器打包后重新变为镜像。</p>
+<h3 id="3-docker基本操作（以mysql为例）"><a href="#3-docker基本操作（以mysql为例）" class="headerlink" title="3.docker基本操作（以mysql为例）"></a>3.docker基本操作（以mysql为例）</h3><h4 id="①-在官方的仓库中寻找mysql的版本"><a href="#①-在官方的仓库中寻找mysql的版本" class="headerlink" title="①.在官方的仓库中寻找mysql的版本"></a>①.在官方的仓库中寻找mysql的版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker search mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/01.png" alt=""></p>
+<h4 id="②-拉取官方mysql镜像"><a href="#②-拉取官方mysql镜像" class="headerlink" title="②.拉取官方mysql镜像"></a>②.拉取官方mysql镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker pull mysql</span><br></pre></td></tr></table></figure>
+<h4 id="③-观察docker中的镜像"><a href="#③-观察docker中的镜像" class="headerlink" title="③.观察docker中的镜像"></a>③.观察docker中的镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker images</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/02.png" alt=""></p>
+<h4 id="④-运行镜像（镜像-gt-容器）"><a href="#④-运行镜像（镜像-gt-容器）" class="headerlink" title="④.运行镜像（镜像-&gt;容器）"></a>④.运行镜像（镜像-&gt;容器）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker run -p 3306:3306 -it  -e MYSQL_ROOT_PASSWORD=123456 -d mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/03.png" alt="">    </p>
+<h4 id="⑤-查看运行中的容器"><a href="#⑤-查看运行中的容器" class="headerlink" title="⑤.查看运行中的容器"></a>⑤.查看运行中的容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker ps</span><br></pre></td></tr></table></figure>
+<p>注：查看所有容器命令为docker ps -a<br><img src="/2018/07/15/docker基础/../docker基础/04.png" alt="">    </p>
+<h4 id="⑥退出容器-后台运行"><a href="#⑥退出容器-后台运行" class="headerlink" title="⑥退出容器(后台运行)"></a>⑥退出容器(后台运行)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@14e...:~# ctrl+p+q || exit</span><br></pre></td></tr></table></figure>
+<h4 id="⑦-关闭容器"><a href="#⑦-关闭容器" class="headerlink" title="⑦.关闭容器"></a>⑦.关闭容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker stop 14</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/05.png" alt=""></p>
+<h4 id="⑧-重新开启容器"><a href="#⑧-重新开启容器" class="headerlink" title="⑧.重新开启容器"></a>⑧.重新开启容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker start 14</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/06.png" alt=""></p>
+<h4 id="⑨-进入容器"><a href="#⑨-进入容器" class="headerlink" title="⑨.进入容器"></a>⑨.进入容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker exec -it 14 /bin/bash</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/07.png" alt=""></p>
+<h5 id="进入容器之后就可以在容器中进行操作，比如进行数据库的操作"><a href="#进入容器之后就可以在容器中进行操作，比如进行数据库的操作" class="headerlink" title="进入容器之后就可以在容器中进行操作，比如进行数据库的操作"></a>进入容器之后就可以在容器中进行操作，比如进行数据库的操作</h5><p>1.进入数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@14e...:~# mysql -uroot -p</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/08.png" alt=""><br>2.查询数据库中所有的库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/09.png" alt=""><br>3.创建数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create database lalala;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/10.png" alt=""><br>4.创建库中的表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;create table work(name char(20),sec char(20),age int);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/11.png" alt=""><br>5.往表中插入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; insert into work(name,sec,age) values(&apos;张三&apos;,&apos;男&apos;,18);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/12.png" alt=""><br>6.查询表中数据是否已经插入完毕<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;select * from work;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/07/15/docker基础/../docker基础/13.png" alt=""></p>
+<h4 id="⑩-在容器中结束操作后，可以将这个容器打包成镜像"><a href="#⑩-在容器中结束操作后，可以将这个容器打包成镜像" class="headerlink" title="⑩.在容器中结束操作后，可以将这个容器打包成镜像"></a>⑩.在容器中结束操作后，可以将这个容器打包成镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# docker commit 14e 0715</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/15/docker基础/../docker基础/14.png" alt=""></p>
+<h4 id="查看镜像，发现0715镜像存在"><a href="#查看镜像，发现0715镜像存在" class="headerlink" title="查看镜像，发现0715镜像存在"></a>查看镜像，发现0715镜像存在</h4><p><img src="/2018/07/15/docker基础/../docker基础/15.png" alt=""></p>
+<p>注：镜像可以打包为文件，并将文件拷贝至任何linux系统下，再进行修改等<br>镜像变为文件的命令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o 文件名 镜像名</span><br></pre></td></tr></table></figure></p>
+<p>文件变成镜像的命令为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dockers load -i 文件名</span><br></pre></td></tr></table></figure></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
